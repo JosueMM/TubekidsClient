@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { usuario } from '../app/usuario';
+import { Login } from './login';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,12 @@ export class UserService {
   addUser(newUser: usuario) {
    
     return this.http.post<usuario>(`${this.baseUrl}`, newUser)
+      .map(user => user);
+  }
+
+  Login(newUser: Login) {
+   
+    return this.http.post<usuario>(`http://localhost:3000/api/login`, newUser)
       .map(user => user);
   }
 
