@@ -7,6 +7,9 @@ import {FormsModule} from "@angular/forms";
 import {HttpModule} from "@angular/http";
 
 
+
+
+
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home.component';
@@ -18,6 +21,11 @@ import { SonComponent } from './son/son.component';
 import { RegisterComponent } from './register/register.component';
 import { FootComponent } from './foot/foot.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
+import { VideoComponent } from './video/video.component';
+import { PlaylistComponent } from './playlist/playlist.component';
+import { VideoService } from './video.service';
+import { UserService } from './user.service';
+import { PerfilService } from './perfil.service';
 
 
 
@@ -31,7 +39,9 @@ import { PerfilesComponent } from './perfiles/perfiles.component';
     SonComponent,
     RegisterComponent,
     FootComponent,
-    PerfilesComponent
+    PerfilesComponent,
+    VideoComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +51,11 @@ import { PerfilesComponent } from './perfiles/perfiles.component';
     ReactiveFormsModule, 
     HttpModule
   ],
-  providers: [],
+  providers: [
+    VideoService,
+    UserService,
+    PerfilService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

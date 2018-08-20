@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { SonComponent } from './son/son.component';
 import { RegisterComponent } from './register/register.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 
 const app_routes: Routes = [
@@ -12,6 +13,7 @@ const app_routes: Routes = [
   {path: 'son', component: SonComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profiles', component: PerfilesComponent},
+  {path: 'playlist', component: PlaylistComponent},
   {path:'', component: HomeComponent}
 ];
 

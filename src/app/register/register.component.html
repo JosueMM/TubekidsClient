@@ -12,33 +12,33 @@
           </div>
           <form id="Register">
             <div class="form-group">
-              <input type="first-name" class="form-control" id="inputFirst-name" placeholder="First Name">
+              <input type="first-name" class="form-control" name="name" [(ngModel)]="current_user.name"  placeholder="First Name">
             </div>
             <div class="form-group">
-                <input type="surnames" class="form-control" id="inputSurnames" placeholder="Surnames">
+                <input type="surnames" class="form-control" name="lastname" [(ngModel)]="current_user.lastname" placeholder="Surnames">
             </div>
           
             <div class="form-group">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                <input type="email" class="form-control" name="email" [(ngModel)]="current_user.email" placeholder="Email Address">
               </div>
 
               <div class="form-group">
-                  <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                  <input type="password" class="form-control" name="password" [(ngModel)]="current_user.password" placeholder="Password">
               </div>
 
             <div class="form-group">
-              <input type="repeat-password" class="form-control" id="inputRepeat-password" placeholder="Repeat-password">
+              <input type="repeat-password" class="form-control" name="passregistration" [(ngModel)]="passregistration" placeholder="Repeat-password">
             </div>
 
             <div class="form-group">
-                <input type="country" class="form-control" id="inputCountry" placeholder="Country">
+                <input type="country" class="form-control" name="country" [(ngModel)]="current_user.contry" placeholder="Country">
             </div>
 
             <div class="form-group">
-                    <input id="date" type="date">
+                    <input id="date" name = "fecha" [(ngModel)]="current_user.fecha" type="date">
               </div>
 
-            <button type="submit" class="btn btn-primary">Login
+            <button type="submit" class="btn btn-primary" (click) = "registrar();">OK
             </button>
           </form>
         </div>
