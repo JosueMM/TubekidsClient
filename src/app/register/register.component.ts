@@ -24,14 +24,15 @@ export class RegisterComponent implements OnInit {
   }
 
   registrar(){
-    alert(this.current_user.fecha);
+  
     var fecha = new Date();
    var ano = fecha.getFullYear();
-   var fecha_user = this.current_user.fecha.slice(0,-6);
+   var fecha_user = this.current_user.birthDate.slice(0,-6);
    
 
    if(ano - parseInt(fecha_user) >= 18){
      this.validar()
+     
     
    }else{
      alert("Eres menor de edad no puedes registrarte");
@@ -43,13 +44,13 @@ export class RegisterComponent implements OnInit {
   validar(){
     if(this.current_user.name == "" || this.current_user.name == " "){
 alert("Debes llenar todos los campos, nombre esta vacio");
-    }else if (this.current_user.lastname == "" || this.current_user.lastname == " "){
+    }else if (this.current_user.lastName == "" || this.current_user.lastName == " "){
       alert("Debes llenar todos los campos, Apellido esta vacio");
     }else if (this.current_user.email == "" || this.current_user.email == " "){
       alert("Debes llenar todos los campos, Email esta vacio");
     }else if(this.current_user.country == "" || this.current_user.country == " "){
       alert("Debes llenar todos los campos, Pais esta vacio");
-    }else if(this.current_user.fecha == "mm/dd/yyy" || this.current_user.fecha == " "){
+    }else if(this.current_user.birthDate == "mm/dd/yyy" || this.current_user.birthDate == " "){
       alert("Debes llenar todos los campos, Fecha esta vacia");
     }else if (this.current_user.password == "" || this.current_user.password == " "){
       alert("Debes llenar todos los campos, contrasena esta vacia");
@@ -57,8 +58,9 @@ alert("Debes llenar todos los campos, nombre esta vacio");
         alert("Contrasenas no coinciden");
     }else{
       if(this.validarEmail(this.current_user.email)){
-    
+        this.addUser();
         alert("Registrado");
+        window.location.href= "../login";
       }else{
         alert("La dirección de email "+this.current_user.email +" es incorrecta.");
       }
@@ -85,7 +87,8 @@ alert("Debes llenar todos los campos, nombre esta vacio");
     
       this.userService.addUser(this.current_user)
         .subscribe(res => {
-          this.current_user = new usuario();
+          this.current_user = res;
+          localStorage.setItem('id', ''+res.id);
           this.ngOnInit();
         });
       return;

@@ -15,11 +15,17 @@ export class VideoComponent implements OnInit {
   videos: Video[];
 
   constructor(private userService: VideoService) { 
-    this.video = new Video();
-    this.videos = [];
+ 
+   
   }
 
   ngOnInit() {
+    var tok = localStorage.getItem("token");
+
+    if(tok== "" || tok === null ){
+      window.location.href = "../login";
+    }
+    
   }
 
 

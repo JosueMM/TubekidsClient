@@ -2,11 +2,11 @@ export class usuario{
 
 id: string;
 name: string;
-lastname: string;
+lastName: string;
 email: string;
 password: string;
 country: string;
-fecha: string;
+birthDate: string;
 
 
 }

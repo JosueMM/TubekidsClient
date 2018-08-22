@@ -11,29 +11,29 @@ import { perfil } from '../app/perfil';
 })
 export class PerfilService {
 
-  baseUrl: string = "http://localhost:3000/api/perfiles";
+  baseUrl: string = "http://localhost:3000/api/profiles";
 
   constructor(private http: HttpClient) { }
 
 
-  getUsers() {
-    return this.http.get<perfil[]>(`${this.baseUrl}`)
+  getUsers(token: string) {
+    return this.http.get<perfil[]>(`${this.baseUrl}`,{headers: { Authorization: token}})
       .map(user => user);
   }
 
-  addUser(newUser: perfil) {
+  addUser(newUser: perfil,token: string) {
    
-    return this.http.post<perfil>(`${this.baseUrl}`, newUser)
+    return this.http.post<perfil>(`${this.baseUrl}`, newUser ,{headers: { Authorization: token}})
       .map(user => user);
   }
 
-  updateUser(newUser: perfil) {
-    return this.http.put(`${this.baseUrl}/${newUser.id}`, newUser)
+  updateUser(newUser: perfil,token: string) {
+    return this.http.put(`${this.baseUrl}/${newUser.id}`, newUser,{headers: { Authorization: token}})
       .map(res => res);
   }
 
-  deleteUser(id: number) {
-    return this.http.delete(`${this.baseUrl}/${id}`)
+  deleteUser(id: number, tok: string) {
+    return this.http.delete(`${this.baseUrl}/${id}`,{headers: { Authorization: tok}})
       .map(res => res);
   }
 

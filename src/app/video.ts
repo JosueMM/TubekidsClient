@@ -4,5 +4,6 @@ export class Video{
     name: string;
     link: string;
     video : string
+    anos: number;
     
     }

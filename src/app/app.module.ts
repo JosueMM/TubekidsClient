@@ -26,6 +26,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import { VideoService } from './video.service';
 import { UserService } from './user.service';
 import { PerfilService } from './perfil.service';
+import { ReproductorComponent } from './reproductor/reproductor.component';
 
 
 
@@ -41,7 +42,8 @@ import { PerfilService } from './perfil.service';
     FootComponent,
     PerfilesComponent,
     VideoComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    ReproductorComponent
   ],
   imports: [
     BrowserModule,

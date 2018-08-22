@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <div class="container">
   <div class="row">
   
@@ -29,16 +30,16 @@
                 </thead>
                 <tbody id="myTable">
               
-                        <tr>
+                        <tr *ngFor = "let perfil of misPer">
                           <td align="center">
                             <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
                             <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
                           </td>
-                          <td class="hidden-xs">1</td>
-                          <td>Josue</td>
-                          <td>Ferjor</td>
-                          <td>6145</td>
-                          <td>20</td>
+                          <td class="hidden-xs">{{perfil['id']}}</td>
+                          <td>{{perfil['name']}}</td>
+                          <td>{{perfil['userName']}}</td>
+                          <td>{{perfil['pin']}}</td>
+                          <td>{{perfil['birthDate']}}</td>
                           
                         </tr>
                       </tbody>

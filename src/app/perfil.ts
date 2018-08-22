@@ -2,7 +2,7 @@ export class perfil{
 
     id: string;
     name: string;
-    username: string;
+    userName: string;
     pin: string;
-    age: string;
+    birthDate: string;
   }

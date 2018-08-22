@@ -10,6 +10,7 @@ import { PerfilService } from '../perfil.service';
 export class SonComponent implements OnInit {
 current_profile:perfil;
 perfiles: perfil[];
+tok : string = "";
 
   constructor(private userService: PerfilService) { 
   this.current_profile = new perfil();
@@ -18,10 +19,15 @@ perfiles: perfil[];
   }
 
   ngOnInit() {
+     this.tok = localStorage.getItem("token");
+
+    if(this.tok== "" || this.tok === null ){
+      window.location.href = "../login";
+    }
   }
 
   getUsers() {
-    this.userService.getUsers()
+    this.userService.getUsers(this.tok)
       .subscribe(users => {
     this.current_profile = new perfil();
         this.perfiles = users;
@@ -30,24 +36,25 @@ perfiles: perfil[];
 
   addUser() {
     
-      this.userService.addUser(this.current_profile)
+      this.userService.addUser(this.current_profile , this.tok)
         .subscribe(res => {
           this.current_profile = new perfil();
+          alert("Registrado");
           this.ngOnInit();
         });
       return;
     }
 
     updateVideo(){
-    this.userService.updateUser(this.current_profile)
+    this.userService.updateUser(this.current_profile,this.tok)
       .subscribe(res => {
         this.current_profile = new perfil();
         this.ngOnInit();
       });
   }
 
-  deleteUser(id: number) {
-    this.userService.deleteUser(id)
+  deleteUser(id: number , tok) {
+    this.userService.deleteUser(id,tok)
       .subscribe(res => {
         this.ngOnInit();
       });

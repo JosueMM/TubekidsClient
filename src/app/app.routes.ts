@@ -5,6 +5,8 @@ import { SonComponent } from './son/son.component';
 import { RegisterComponent } from './register/register.component';
 import { PerfilesComponent } from './perfiles/perfiles.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { VideoComponent } from './video/video.component';
+import { ReproductorComponent } from './reproductor/reproductor.component';
 
 
 const app_routes: Routes = [
@@ -14,7 +16,9 @@ const app_routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'profiles', component: PerfilesComponent},
   {path: 'playlist', component: PlaylistComponent},
-  {path:'', component: HomeComponent}
+  {path: 'video', component: VideoComponent},
+  {path: 'player', component: ReproductorComponent},
+  {path:'', component: LoginComponent}
 ];
 
 export const app_routing = RouterModule.forRoot(app_routes);

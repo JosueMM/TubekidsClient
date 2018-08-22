@@ -6,11 +6,14 @@ import 'rxjs/add/operator/catch';
 
 import { usuario } from '../app/usuario';
 import { Login } from './login';
+import { Token } from './token';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  login: Login = new Login();
 
   baseUrl: string = "http://localhost:3000/api/users";
 
@@ -28,8 +31,12 @@ export class UserService {
       .map(user => user);
   }
 
-  Login(newUser: Login) {
-   
+  LoginToken(newUser: Login) {
+    return this.http.post<Token>(`http://localhost:3000/api/login`, newUser)
+      .map(user => user);
+  }
+
+  LoginUser(newUser: Login) {
     return this.http.post<usuario>(`http://localhost:3000/api/login`, newUser)
       .map(user => user);
   }
