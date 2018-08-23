@@ -5,34 +5,22 @@
 <br>
 <button type="submit" class="btn btn-success">Playlist Name</button>
 
-<ul class="list-unstyled video-list-thumbs row">
-  <li class="col-lg-3 col-sm-4 col-xs-6">
 
-      <iframe width="230" height="130" src="https://www.youtube.com/embed/RX0VtkQOddw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </li>
+<div class="col-md-4 fl" *ngFor = "let video of play">
+  
+    <div class="card profile-card-1">
+      <img src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb" alt="profile-sample1" class="background"/>
+      <img src="http://babich.biz/content/images/2017/01/schools-promotional-videos.jpg" alt="profile-image" class="profile"/>
+          <div class="card-content">
+          <h2>{{video["name"]}}<small>+{{video["detail"]}}</small></h2><br>
+          <small>Perfil</small><br>
+          <button class="btn btn-success " (click)= "Ver(video['url']);">Ver</button> 
+          
+       
+          
+          </div>
+      </div>
+  
 
-  <li class="col-lg-3 col-sm-4 col-xs-6">
-      <iframe width="230" height="130" src="https://www.youtube.com/embed/QRa9On5_grA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </li>
-  <li class="col-lg-3 col-sm-4 col-xs-6">
-      <iframe width="230" height="130" src="https://www.youtube.com/embed/TabYXP3Lq4g" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </li>
-  <li class="col-lg-3 col-sm-4 col-xs-6">
-      <iframe width="230" height="130" src="https://www.youtube.com/embed/-TbCfGhw2gQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </li>
-  <li class="col-lg-3 col-sm-4 col-xs-6">
-      <iframe width="230" height="130" src="https://www.youtube.com/embed/53ePiCirfvk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </li>
-  <li class="col-lg-3 col-sm-4 col-xs-6">
-      <iframe width="230" height="130" src="https://www.youtube.com/embed/I6BuQ3TRkg0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </li>
-  <li class="col-lg-3 col-sm-4 col-xs-6">
-      <iframe width="230" height="130" src="https://www.youtube.com/embed/D0pMNiobZPM?list=RDD0pMNiobZPM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-  </li>
-  <li class="col-lg-3 col-sm-4 col-xs-6">                          
-      <iframe width="230" height="130" src="https://www.youtube.com/embed/XQaKFU3Fh_M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>                                                                              
-  </li>
-  <li class="col-lg-3 col-sm-4 col-xs-6">
-      <iframe width="230" height="130" src="https://www.youtube.com/embed/lWKaMeJRiik" frameborder="0"></iframe>
-  </li>
-</ul>
+      
+  </div>

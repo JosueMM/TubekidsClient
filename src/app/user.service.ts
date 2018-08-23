@@ -42,7 +42,7 @@ export class UserService {
   }
 
   updateUser(newUser: usuario) {
-    return this.http.put(`${this.baseUrl}/${newUser.id}`, newUser)
+    return this.http.put(`${this.baseUrl}/${newUser._id}`, newUser)
       .map(res => res);
   }
 

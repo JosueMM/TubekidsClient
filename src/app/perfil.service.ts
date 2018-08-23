@@ -28,11 +28,11 @@ export class PerfilService {
   }
 
   updateUser(newUser: perfil,token: string) {
-    return this.http.put(`${this.baseUrl}/${newUser.id}`, newUser,{headers: { Authorization: token}})
+    return this.http.put(`${this.baseUrl}/${newUser._id}`, newUser,{headers: { Authorization: token}})
       .map(res => res);
   }
 
-  deleteUser(id: number, tok: string) {
+  deleteUser(id: string, tok: string) {
     return this.http.delete(`${this.baseUrl}/${id}`,{headers: { Authorization: tok}})
       .map(res => res);
   }

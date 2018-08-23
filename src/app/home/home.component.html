@@ -16,8 +16,10 @@
           <div class="card-content">
           <h2>{{video["name"]}}<small>+{{video["detail"]}}</small></h2><br>
           <small>Perfil</small><br>
-          <button class="btn btn-success Small" (click)= "Ver(video['url'],video['detail']);">Ver</button> |   |
-          <button class="btn btn-primary Small">Fav</button>
+          <button class="btn btn-success Small" (click)= "Ver(video['url'],video['detail'],video['name']);">Ver</button> |   |
+          <button class="btn btn-primary Small" (click)="playlist(video['_id'],video['detail'])">Fav</button> |  |
+          <button class="btn btn-danger Small" (click)="playlist()">X</button>|   |
+          <button class="btn btn-primary Small" (click)="playlist()">Edit</button>
        
           
           </div>

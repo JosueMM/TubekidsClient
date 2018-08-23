@@ -1,6 +1,6 @@
 export class usuario{
 
-id: string;
+_id: string;
 name: string;
 lastName: string;
 email: string;

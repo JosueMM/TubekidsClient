@@ -1,6 +1,6 @@
 export class perfil{
 
-    id: string;
+    _id: string;
     name: string;
     userName: string;
     pin: string;

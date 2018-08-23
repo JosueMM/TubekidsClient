@@ -9,47 +9,68 @@ import { usuario } from '../usuario';
   styleUrls: ['./perfiles.component.css']
 })
 export class PerfilesComponent implements OnInit {
-tok : string = "";
-perfiles : perfil[]; 
-misPer : perfil[];
-user : usuario;
-  constructor(private perfilService : PerfilService) {
+  tok: string = "";
+  perfiles: perfil[];
+  misPer: perfil[];
+  user: usuario;
+  constructor(private perfilService: PerfilService) {
     this.perfiles = [];
     this.misPer = [];
-   }
+  }
 
   ngOnInit() {
-     this.tok = localStorage.getItem("token");
+    this.tok = localStorage.getItem("token");
 
-    if(this.tok== "" || this.tok === null ){
+    if (this.tok == "" || this.tok === null) {
       window.location.href = "../login";
-    }else{
+    } else {
       this.misPerfiles();
     }
   }
 
-  getPerfiles(){
+  getPerfiles() {
     this.perfilService.getUsers(this.tok)
       .subscribe(users => {
         var obj = JSON.parse(sessionStorage.getItem("user"));
-   
         
         for (let i = 0; i < users.length; i++) {
-        
-          if(users[i].userId === obj.user._id){
+          if (users[i].userId === obj.user._id ) {
             this.misPer.push(users[i]);
           }
         }
       });
   }
 
-  misPerfiles(){
-    this.getPerfiles();
-   
+  delete(id:string) {
+ 
+    this.perfilService.deleteUser(id,this.tok)
+      .subscribe(users => {
+      alert("Eliminado");
+      this.misPer = [];
+      this.ngOnInit();
+      });
+  }
+
+  update(id:string){
+    this.perfilService.getUsers(this.tok)
+      .subscribe(users => { 
+        for (let i = 0; i < users.length; i++) {
+          if (users[i]._id === id) {
+            sessionStorage.setItem("edit",JSON.stringify(users[i]));
+            window.location.href = '../edit';
+          }
+        }
+      });
 
   }
 
-  
+  misPerfiles() {
+    this.getPerfiles();
+
+
+  }
+
+
 
 
 }

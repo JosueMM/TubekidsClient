@@ -24,7 +24,7 @@ user:usuario;
 
   ngOnInit() {
     this.user = JSON.parse(sessionStorage.getItem("user")).user;
-    this.user.id = JSON.parse(sessionStorage.getItem("user")).user._id;
+    this.user._id = JSON.parse(sessionStorage.getItem("user")).user._id;
      this.tok = localStorage.getItem("token");
 
     if(this.tok== "" || this.tok === null ){
@@ -41,7 +41,7 @@ user:usuario;
   }
 
   addUser() {
-    this.current_profile.userId = this.user.id;
+    this.current_profile.userId = this.user._id;
     
       this.userService.addUser(this.current_profile , this.tok)
         .subscribe(res => {
@@ -62,7 +62,7 @@ user:usuario;
       });
   }
 
-  deleteUser(id: number , tok) {
+  deleteUser(id: string , tok) {
     this.userService.deleteUser(id,tok)
       .subscribe(res => {
         this.ngOnInit();
