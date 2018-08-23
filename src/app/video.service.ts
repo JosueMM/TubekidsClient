@@ -15,24 +15,24 @@ export class VideoService {
   constructor(private http: HttpClient) { }
 
 
-  getUsers() {
-    return this.http.get<Video[]>(`${this.baseUrl}`)
+  getUsers(token : string) {
+    return this.http.get<Video[]>(`${this.baseUrl}` ,{headers: { Authorization: token}})
       .map(user => user);
   }
 
-  addUser(newUser: Video) {
+  addUser(newUser: Video, token : string) {
    
-    return this.http.post<Video>(`${this.baseUrl}`, newUser)
+    return this.http.post<Video>(`${this.baseUrl}`, newUser ,{headers: { Authorization: token}})
       .map(user => user);
   }
 
-  updateUser(newUser: Video) {
-    return this.http.put(`${this.baseUrl}/${newUser.id}`, newUser)
+  updateUser(newUser: Video,token : string) {
+    return this.http.put(`${this.baseUrl}/${newUser.id}`, newUser ,{headers: { Authorization: token}})
       .map(res => res);
   }
 
-  deleteUser(id: number) {
-    return this.http.delete(`${this.baseUrl}/${id}`)
+  deleteUser(id: number,token : string) {
+    return this.http.delete(`${this.baseUrl}/${id}`,{headers: { Authorization: token}})
       .map(res => res);
   }
 

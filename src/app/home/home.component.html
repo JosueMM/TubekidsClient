@@ -5,6 +5,7 @@
   
   <br>
   <button class="btn btn-primary" [routerLink]="['../video']">Anadir Video</button><br><br>
+  <button class="btn btn-primary" [routerLink]="['../logprofile']">Logear Perfil</button> {{perfil.name}}<br>
 
 
   <div class="col-md-4 fl" *ngFor = "let video of videos">
@@ -13,11 +14,12 @@
       <img src="https://images.pexels.com/photos/946351/pexels-photo-946351.jpeg?w=500&h=650&auto=compress&cs=tinysrgb" alt="profile-sample1" class="background"/>
       <img src="http://babich.biz/content/images/2017/01/schools-promotional-videos.jpg" alt="profile-image" class="profile"/>
           <div class="card-content">
-          <h2>{{video["name"]}}<small>+{{video["anos"]}}</small></h2><br>
+          <h2>{{video["name"]}}<small>+{{video["detail"]}}</small></h2><br>
           <small>Perfil</small><br>
-          <button class="btn btn-success Small" (click)= "Ver(video['link']);">Ver</button> |   |
+          <button class="btn btn-success Small" (click)= "Ver(video['url'],video['detail']);">Ver</button> |   |
           <button class="btn btn-primary Small">Fav</button>
        
+          
           </div>
       </div>
   

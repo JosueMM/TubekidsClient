@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit {
     this.userService.LoginUser(log).subscribe(res => {
       this.user = res;
      sessionStorage.setItem('user', JSON.stringify(this.user));
-     
-
+    
      window.location.href= "../home";
     });;
   }

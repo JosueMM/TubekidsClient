@@ -33,10 +33,10 @@ user : usuario;
       .subscribe(users => {
         var obj = JSON.parse(sessionStorage.getItem("user"));
    
-
+        
         for (let i = 0; i < users.length; i++) {
         
-          if(users[i].name === obj.user.name){
+          if(users[i].userId === obj.user._id){
             this.misPer.push(users[i]);
           }
         }

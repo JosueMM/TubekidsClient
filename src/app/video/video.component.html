@@ -15,20 +15,20 @@
           </div>
           <form id="Register">
             <div class="form-group">
-              <input type="first-name" class="form-control" name="name" [(ngModel)]="current_video.name" placeholder="Nombre">
+              <input type="first-name" class="form-control" name="name" [(ngModel)]="video.name" placeholder="Nombre">
             </div>
             <div class="form-group">
-              <input type="first-name" class="form-control" name="link" [(ngModel)]="current_video.link" placeholder="Link">
+              <input type="first-name" class="form-control" name="url" [(ngModel)]="video.url" placeholder="Link">
             </div>
-            <p>O</p>
             <div class="form-group">
-                <input type="file" class="form-control" name="link" [(ngModel)]="current_video.video" placeholder="Archivo">
+              <input type="first-name" class="form-control" name="name" [(ngModel)]="video.detail" placeholder="Limite de edad">
             </div>
+           
           
 
          
 
-            <button type="submit" class="btn btn-primary">Aceptar
+            <button type="submit" class="btn btn-primary" (click) = 'addUser();'>Aceptar
             </button>
           </form>
         </div>

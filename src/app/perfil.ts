@@ -5,4 +5,5 @@ export class perfil{
     userName: string;
     pin: string;
     birthDate: string;
+    userId : string;
   }

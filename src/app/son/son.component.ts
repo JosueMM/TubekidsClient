@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {perfil} from '../perfil';
 import { PerfilService } from '../perfil.service';
+import { usuario } from '../usuario';
 
 @Component({
   selector: 'app-son',
@@ -11,14 +12,19 @@ export class SonComponent implements OnInit {
 current_profile:perfil;
 perfiles: perfil[];
 tok : string = "";
+user:usuario;
+
 
   constructor(private userService: PerfilService) { 
   this.current_profile = new perfil();
   this.perfiles = [];
+  this.user = new usuario();
 
   }
 
   ngOnInit() {
+    this.user = JSON.parse(sessionStorage.getItem("user")).user;
+    this.user.id = JSON.parse(sessionStorage.getItem("user")).user._id;
      this.tok = localStorage.getItem("token");
 
     if(this.tok== "" || this.tok === null ){
@@ -35,6 +41,7 @@ tok : string = "";
   }
 
   addUser() {
+    this.current_profile.userId = this.user.id;
     
       this.userService.addUser(this.current_profile , this.tok)
         .subscribe(res => {
@@ -43,7 +50,9 @@ tok : string = "";
           this.ngOnInit();
         });
       return;
+    
     }
+    
 
     updateVideo(){
     this.userService.updateUser(this.current_profile,this.tok)

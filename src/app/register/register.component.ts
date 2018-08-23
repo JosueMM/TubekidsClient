@@ -88,7 +88,7 @@ alert("Debes llenar todos los campos, nombre esta vacio");
       this.userService.addUser(this.current_user)
         .subscribe(res => {
           this.current_user = res;
-          localStorage.setItem('id', ''+res.id);
+          localStorage.setItem('id', res.id);
           this.ngOnInit();
         });
       return;

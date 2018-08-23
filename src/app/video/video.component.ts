@@ -13,16 +13,17 @@ export class VideoComponent implements OnInit {
 
   video: Video;
   videos: Video[];
+  token: string;
 
   constructor(private userService: VideoService) { 
- 
+ this.video = new Video();
    
   }
 
   ngOnInit() {
-    var tok = localStorage.getItem("token");
+     this.token = localStorage.getItem("token");
 
-    if(tok== "" || tok === null ){
+    if(this.token== "" || this.token === null ){
       window.location.href = "../login";
     }
     
@@ -30,7 +31,7 @@ export class VideoComponent implements OnInit {
 
 
   getUsers() {
-    this.userService.getUsers()
+    this.userService.getUsers(this.token)
       .subscribe(users => {
     this.video = new Video();
         this.videos = users;
@@ -39,16 +40,17 @@ export class VideoComponent implements OnInit {
 
   addUser() {
     
-      this.userService.addUser(this.video)
+      this.userService.addUser(this.video,this.token)
         .subscribe(res => {
           this.video = new Video();
+          alert("Video Registrado");
           this.ngOnInit();
         });
       return;
     }
 
     updateVideo(){
-    this.userService.updateUser(this.video)
+    this.userService.updateUser(this.video,this.token)
       .subscribe(res => {
         this.video = new Video();
         this.ngOnInit();
@@ -56,7 +58,7 @@ export class VideoComponent implements OnInit {
   }
 
   deleteUser(id: number) {
-    this.userService.deleteUser(id)
+    this.userService.deleteUser(id,this.token)
       .subscribe(res => {
         this.ngOnInit();
       });

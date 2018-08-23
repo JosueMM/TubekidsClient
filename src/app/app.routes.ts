@@ -7,6 +7,7 @@ import { PerfilesComponent } from './perfiles/perfiles.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { VideoComponent } from './video/video.component';
 import { ReproductorComponent } from './reproductor/reproductor.component';
+import { LogProfileComponent } from './log-profile/log-profile.component';
 
 
 const app_routes: Routes = [
@@ -18,6 +19,7 @@ const app_routes: Routes = [
   {path: 'playlist', component: PlaylistComponent},
   {path: 'video', component: VideoComponent},
   {path: 'player', component: ReproductorComponent},
+  {path: 'logprofile', component: LogProfileComponent},
   {path:'', component: LoginComponent}
 ];
 

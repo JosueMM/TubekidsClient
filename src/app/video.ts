@@ -2,8 +2,8 @@ export class Video{
 
     id: string;
     name: string;
-    link: string;
-    video : string
-    anos: number;
+    url: string;
+    userId : string
+    detail: number;
     
     }
