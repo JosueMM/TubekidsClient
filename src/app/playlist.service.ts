@@ -15,8 +15,8 @@ export class PlaylistService {
   constructor(private http: HttpClient) { }
 
 
-  getPlaylist(id:string,token : string) {
-    return this.http.get<Playlist[]>(`${this.baseUrl}/`+id ,{headers: { Authorization: token}})
+  getPlaylist(token : string) {
+    return this.http.get<Playlist[]>(`${this.baseUrl}/` ,{headers: { Authorization: token}})
       .map(user => user);
   }
 

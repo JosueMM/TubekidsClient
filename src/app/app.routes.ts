@@ -9,6 +9,7 @@ import { VideoComponent } from './video/video.component';
 import { ReproductorComponent } from './reproductor/reproductor.component';
 import { LogProfileComponent } from './log-profile/log-profile.component';
 import { EditComponent } from './edit/edit.component';
+import { EditVideoComponent } from './edit-video/edit-video.component';
 
 
 const app_routes: Routes = [
@@ -22,6 +23,7 @@ const app_routes: Routes = [
   {path: 'player', component: ReproductorComponent},
   {path: 'logprofile', component: LogProfileComponent},
   {path: 'edit', component: EditComponent},
+  {path: 'editVideo', component: EditVideoComponent},
   {path:'', component: LoginComponent}
 ];
 

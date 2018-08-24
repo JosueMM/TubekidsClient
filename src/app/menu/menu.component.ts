@@ -13,4 +13,9 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout(){
+   localStorage.setItem("token","");
+  window.location.href = "../login";
+  }
+
 }

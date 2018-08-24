@@ -29,6 +29,7 @@ import { PerfilService } from './perfil.service';
 import { ReproductorComponent } from './reproductor/reproductor.component';
 import { LogProfileComponent } from './log-profile/log-profile.component';
 import { EditComponent } from './edit/edit.component';
+import { EditVideoComponent } from './edit-video/edit-video.component';
 
 
 
@@ -47,7 +48,8 @@ import { EditComponent } from './edit/edit.component';
     PlaylistComponent,
     ReproductorComponent,
     LogProfileComponent,
-    EditComponent
+    EditComponent,
+    EditVideoComponent
   ],
   imports: [
     BrowserModule,

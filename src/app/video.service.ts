@@ -26,12 +26,18 @@ export class VideoService {
       .map(user => user);
   }
 
+  search(name:string, token : string) {
+   
+    return this.http.get<Video[]>(`${this.baseUrl}/findByNamel/`+name,{headers: { Authorization: token}})
+      .map(user => user);
+  }
+
   updateUser(newUser: Video,token : string) {
-    return this.http.put(`${this.baseUrl}/${newUser.id}`, newUser ,{headers: { Authorization: token}})
+    return this.http.put(`${this.baseUrl}/${newUser._id}`, newUser ,{headers: { Authorization: token}})
       .map(res => res);
   }
 
-  deleteUser(id: number,token : string) {
+  deleteUser(id: string,token : string) {
     return this.http.delete(`${this.baseUrl}/${id}`,{headers: { Authorization: token}})
       .map(res => res);
   }

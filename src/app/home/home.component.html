@@ -7,6 +7,31 @@
   <button class="btn btn-primary" [routerLink]="['../video']">Anadir Video</button><br><br>
   <button class="btn btn-primary" [routerLink]="['../logprofile']">Logear Perfil</button> {{perfil.name}}<br>
 
+  <div class="form-group">
+      <div class="container">
+          <br/>
+        <div class="row justify-content-center">
+                              <div class="col-12 col-md-10 col-lg-8">
+                                  <form class="card card-sm">
+                                      <div class="card-body row no-gutters align-items-center">
+                                          <div class="col-auto">
+                                              <i class="fas fa-search h4 text-body"></i>
+                                          </div>
+                                          <!--end of col-->
+                                          <div class="col">
+                                              <input class="form-control form-control-lg form-control-borderless" type="search" name="busqueda" [(ngModel)] = "busqueda" placeholder="Search topics or keywords">
+                                          </div>
+                                          <!--end of col-->
+                                          <div class="col-auto">
+                                              <button class="btn btn-lg btn-success" type="submit" (click) = "search()">Search</button>
+                                          </div>
+                                          <!--end of col-->
+                                      </div>
+                                  </form>
+                              </div>
+                              <!--end of col-->
+                          </div>
+      </div>
 
   <div class="col-md-4 fl" *ngFor = "let video of videos">
   
@@ -18,8 +43,8 @@
           <small>Perfil</small><br>
           <button class="btn btn-success Small" (click)= "Ver(video['url'],video['detail'],video['name']);">Ver</button> |   |
           <button class="btn btn-primary Small" (click)="playlist(video['_id'],video['detail'])">Fav</button> |  |
-          <button class="btn btn-danger Small" (click)="playlist()">X</button>|   |
-          <button class="btn btn-primary Small" (click)="playlist()">Edit</button>
+          <button class="btn btn-danger Small" (click)="eliminar(video['_id'])">X</button>|   |
+          <button class="btn btn-primary Small" (click)="edit()">Edit</button>
        
           
           </div>

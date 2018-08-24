@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
 
   loginUser(log:Login){
     log.gethash = false;
+    
     this.userService.LoginUser(log).subscribe(res => {
       this.user = res;
      sessionStorage.setItem('user', JSON.stringify(this.user));

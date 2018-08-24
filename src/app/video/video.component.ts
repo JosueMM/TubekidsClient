@@ -72,7 +72,7 @@ export class VideoComponent implements OnInit {
       });
   }
 
-  deleteUser(id: number) {
+  deleteUser(id: string) {
     this.userService.deleteUser(id, this.token)
       .subscribe(res => {
         this.ngOnInit();
